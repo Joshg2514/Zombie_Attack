@@ -11,6 +11,8 @@ public class tester : MonoBehaviour
 	private int startX;
 	private int startY;
 	
+	public GameObject bigExplosionPrefab;
+	
     public Pathfinding pathfinding;
 	
 	private Camera mainCamera;
@@ -46,7 +48,7 @@ public class tester : MonoBehaviour
 				Debug.Log("checking..");
 				for(int i = 0; i < path.Count - 1; i++){
 				Debug.Log(path[i+1].x + "," + path[i+1].y);
-				Debug.DrawLine(pathfinding.GetGrid().GetWorldPosition(path[i].x, path[i].y) + Vector3.one *.5f, pathfinding.GetGrid().GetWorldPosition(path[i+1].x, path[i+1].y)+ Vector3.one *.5f, Color.green, 1f);
+				//Debug.DrawLine(pathfinding.GetGrid().GetWorldPosition(path[i].x, path[i].y) + Vector3.one *.5f, pathfinding.GetGrid().GetWorldPosition(path[i+1].x, path[i+1].y)+ Vector3.one *.5f, Color.green, 1f);
 				//grid.TriggerGridObjectChanged(x, y);
 				}
 				
@@ -63,6 +65,7 @@ public class tester : MonoBehaviour
 		if (Input.GetMouseButtonDown(1)) {
 			Vector3 position = utilities.GetMouseWorldPosition();
 			pathfinding.GetGrid().GetXY(cameraRay.GetPoint(rayLength), out int x, out int y);
+			
 			Debug.Log(x + "," + y + " is new start") ;
 			startX = x;
 			startY = y;
@@ -72,6 +75,10 @@ public class tester : MonoBehaviour
 		if (Input.GetKeyDown("space")) {
 			Vector3 position = utilities.GetMouseWorldPosition();
 			pathfinding.GetGrid().GetXY(cameraRay.GetPoint(rayLength), out int x, out int y);
+			
+			Quaternion newRotation = Quaternion.Euler(0,0,0);
+			Instantiate(bigExplosionPrefab, pathfinding.GetGrid().GetWorldPosition(x ,y)* 1f + Vector3.one * 1f * .5f, newRotation);
+			
 			pathfinding.GetGrid().GetGridObject(x, y).Block();
 			Debug.Log(pathfinding.GetGrid().GetGridObject(x, y).blocked);
 			pathfinding.GetGrid().TriggerGridObjectChanged(x, y);

@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPathFinder: {fileID: 240882614}
+  bigExplosionPrefab: {fileID: 730995011284174453, guid: 7a1d3c5afb31dd043814f3988ed90d5a, type: 3}
 --- !u!1 &428200873
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +464,10 @@ PrefabInstance:
     - target: {fileID: -1498384649589692487, guid: fa4d8f1489dc1d044b0fc79916823a5b, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219686954, guid: fa4d8f1489dc1d044b0fc79916823a5b, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 2002334878868037485, guid: fa4d8f1489dc1d044b0fc79916823a5b, type: 3}
       propertyPath: m_Name
@@ -820,6 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPathFinder: {fileID: 0}
+  bigExplosionPrefab: {fileID: 0}
 --- !u!1 &681534586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPathFinder: {fileID: 0}
+  bigExplosionPrefab: {fileID: 0}
 --- !u!4 &1810540613
 Transform:
   m_ObjectHideFlags: 0

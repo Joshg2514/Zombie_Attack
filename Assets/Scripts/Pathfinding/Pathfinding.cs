@@ -32,7 +32,7 @@ public class Pathfinding
 			List<Vector3> vectorPath = new List<Vector3>();
 			foreach(PathNode pathNode in path) {
 				vectorPath.Add(grid.GetWorldPosition(pathNode.x, pathNode.y) * 1f + Vector3.one * 1f * .5f);
-				
+			//	Debug.DrawLine(grid.GetWorldPosition(pathNode.x, pathNode.y) * 1f + Vector3.one * 1f * .5f,GetPosition(),  Color.green, 1f);
 			}
 			return vectorPath;
 	}
